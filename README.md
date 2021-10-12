@@ -1,6 +1,8 @@
 # Emvi Wiki
 
-(c) 2018-2020 Emvi Software GmbH, all rights reserved.
+**Support?**
+
+No. This used to be our SaaS on emvi.com, but didn't work out the way we wanted. It's now open-source to help some of our users keep it running, but support will be *very* limited.
 
 ## Hosts configuration
 
