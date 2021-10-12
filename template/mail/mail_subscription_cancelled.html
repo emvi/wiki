@@ -1,0 +1,15 @@
+{{$text := printf "%s <strong>%s</strong> %s" (index .Vars "text-1") .Organization.Name (index .Vars "text-2")}}
+{{$contact := printf "%s <a href=\"mailto:%s\" target=\"_blank\">%s</a>" (index .Vars "text-3") .SupportMail .SupportMail}}
+
+{{template "head.html" (index .Vars "title")}}
+{{template "preheader.html" (index .Vars "title")}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph $text) (MailParagraph $contact) (MailGoodbye (index .Vars "goodbye"))}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

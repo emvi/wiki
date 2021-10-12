@@ -1,0 +1,26 @@
+{{template "head.html" .}}
+
+<div class="login-container">
+    <div class="card login">
+        <h1>Sign In</h1>
+
+        {{if .Vars.Error}}
+            <div class="error-msg">{{.Vars.Error}}</div>
+        {{end}}
+
+        <form method="post" action="/login">
+            <label>
+                Email
+                <input type="text" name="email" placeholder="your.name@emvi.com" />
+            </label>
+            <label>
+                Password
+                <input type="password" name="password" placeholder="Password" />
+            </label>
+            <input type="submit" value="Sign In" class="full-width" />
+        </form>
+        <div class="copyright">&copy; 2020 Emvi Software GmbH</div>
+    </div>
+</div>
+
+{{template "end.html" .}}

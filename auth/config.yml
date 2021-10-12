@@ -1,0 +1,60 @@
+version: dev
+recaptcha_client_secret: 
+logging:
+  level: debug
+migrate:
+  dir: schema
+  db:
+    host: localhost
+    user: postgres
+    password: postgres
+    schema: emviauth
+auth_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviauth
+server:
+  host: localhost.com:4001
+  http:
+    tls: false
+    secure_cookies: false
+    timeout:
+      read: 5
+      write: 5
+cors:
+  origins: "*"
+  loglevel: info
+mail:
+  sender: "Emvi Team <noreply@emvi.com>"
+  smtp:
+    server: localhost
+    port: 1025
+template:
+  template_dir: ../template/auth/*
+  mail_template_dir: ../template/mail/*
+  hot_reload: true
+hosts:
+  website: http://localhost.com:4000
+  auth: http://localhost.com:4001
+sso:
+  google:
+    id: 
+    secret: 
+  github:
+    id: 
+    secret: 
+  slack:
+    id: .864619264629
+    secret: 
+  microsoft:
+    id: 
+    secret: 
+jwt:
+  public_key: secrets/token.public
+  private_key: secrets/token.private
+  cookie_domain_name: .localhost.com
+registration:
+  confirmation_uri: http://localhost.com:4000/registration
+  completed_new_orga_uri: http://localhost.com:4000/new
+  completed_join_orga_uri: http://localhost.com:4000/organizations

@@ -1,0 +1,25 @@
+version: dev
+is_integration: true
+logging:
+  level: debug
+server:
+  host: localhost.com:4002
+  http:
+    tls: false
+    secure_cookies: false
+    timeout:
+      read: 5
+      write: 5
+cors:
+  origins: "*"
+  loglevel: info
+hosts:
+  website: http://localhost.com:4000
+  auth: http://localhost.com:4001
+  backend: http://localhost.com:4003
+  collab: http://localhost.com:4004
+auth_client:
+  id: 9lrodHgg0z4EGCe9dTJ1
+dev:
+  watch_build_js: true
+  watch_index_html: true

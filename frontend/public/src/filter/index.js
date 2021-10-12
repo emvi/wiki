@@ -1,0 +1,1 @@
+export {initialsFilter} from "./initials";

@@ -1,0 +1,57 @@
+{{template "head.html" .}}
+{{template "navbar.html" .}}
+
+<div class="content">
+    <div class="row">
+        <div class="card">
+            <h2>Write Newsletter</h2>
+            <p>
+                <a href="/newsletter">Back to overview</a>
+            </p>
+
+            {{if .Vars.SaveError}}
+                <div class="error-msg">{{.Vars.SaveError}}</div>
+            {{end}}
+
+            <form method="post">
+                <label>Subject</label>
+                <input type="text" name="subject" value="{{.Vars.Subject}}" />
+                <label>Scheduled Date</label>
+                <input type="date" name="scheduled" value="{{.Vars.Scheduled}}" />
+                <label>Content (HTML)</label>
+                <textarea name="content">{{.Vars.Content}}</textarea>
+                <input type="submit" value="Save" />
+            </form>
+        </div>
+    </div>
+    {{if .Vars.ID}}
+        <div class="row">
+            <div class="card">
+                <h2>Send Test Newsletter</h2>
+                <form id="testMail">
+                    <label>E-Mail Address</label>
+                    <input type="email" name="email" value="support@emvi.com" id="testEmail" />
+                    <input type="submit" value="Send" />
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript">
+            let testEmail = document.getElementById("testEmail");
+
+            document.getElementById("testMail").addEventListener("submit", e => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                axios.put("/newsletter/edit/{{.Vars.ID | IdToString}}", {email: testEmail.value})
+                .then(() => {
+                    alert("E-Mail send");
+                })
+                .catch(() => {
+                    alert("Error sending mail");
+                });
+            });
+        </script>
+    {{end}}
+</div>
+
+{{template "end.html" .}}

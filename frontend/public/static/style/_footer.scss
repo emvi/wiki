@@ -1,0 +1,23 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 96px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px;
+    z-index: 1100;
+    pointer-events: none;
+    -webkit-backface-visibility: hidden; /* Correct fixed positioning on mobile */
+
+    * {
+        pointer-events: all;
+    }
+
+    .icon {
+        color: var(--grey-50);
+        background-color: var(--white-to-grey-90);
+        border-radius: 50%;
+    }
+}

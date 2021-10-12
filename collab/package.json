@@ -1,0 +1,34 @@
+{
+  "name": "emviwiki-collaborative",
+  "version": "1.0.0",
+  "description": "Emvi Wiki collaborative backend.",
+  "main": "src/main.js",
+  "scripts": {
+    "compile": "babel -d dist/ src/",
+    "start": "node dist/main.js",
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://source.developers.google.com/p/emviwiki/r/emviwiki-collaborative"
+  },
+  "author": "Marvin Blum",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "prosemirror-model": "^1.13.1",
+    "prosemirror-schema-list": "^1.1.4",
+    "prosemirror-state": "^1.3.4",
+    "prosemirror-tables": "^1.1.1",
+    "prosemirror-transform": "^1.2.9",
+    "socket.io": "^2.3.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "mocha": "^8.2.1"
+  }
+}

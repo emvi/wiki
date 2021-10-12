@@ -1,0 +1,255 @@
+/* Color schemes */
+html {
+    --black: #000;
+    --white: #fff;
+
+    --grey-90: #242526;
+    --grey-80: #303233;
+    --grey-60: #555759;
+    --grey-50: #797c80;
+    --grey-40: #babcbf;
+    --grey-20: #e1e3e5;
+    --grey-10: #f5f6f7;
+}
+
+.theme-light {
+    --white-to-black: var(--white);
+
+    --white-to-grey-90: var(--white);
+    --grey-90-to-white: var(--grey-90);
+
+    --black-to-grey-20: var(--black);
+
+    --grey-60-to-grey-40: var(--grey-60);
+    --grey-40-to-grey-60: var(--grey-40);
+
+    --grey-10-to-grey-80: var(--grey-10);
+    --grey-20-to-grey-60: var(--grey-20);
+
+    --blue-100: #198cff;
+    --blue-10: rgba(25,140,255,.1);
+    --purple-100: #cb45e5;
+    --purple-10: rgba(203,69,229,.1);
+    --pink-100: #ff4cc3;
+    --pink-10: rgba(255,76,195,.1);
+    --red-100: #ff1a1a;
+    --red-10: rgba(255,26,26,.1);
+    --brown-100: #e5a15c;
+    --brown-10: rgba(229,161,92,.1);
+    --orange-100: #ff8c19;
+    --orange-10: rgba(255,140,25,.1);
+    --yellow-100: #ffd81a;
+    --yellow-10: rgba(255,216,26,.1);
+    --green-100: #14cc52;
+    --green-10: rgba(20,204,82,.1);
+    --bluegreen-100: #5ce5b8;
+    --bluegreen-10: rgba(92,229,184,.1);
+
+    --box-shadow: 0 0 16px rgba(0,0,0,.08);
+
+    --overlay: rgba(0,0,0,.2);
+    --fade: linear-gradient(to bottom,
+        hsl(0,0%,100%) 0%,
+        hsla(0,0%,100%,.987) 12%,
+        hsla(0,0%,100%,.951) 22.4%,
+        hsla(0,0%,100%,.896) 31.5%,
+        hsla(0,0%,100%,.825) 39.4%,
+        hsla(0,0%,100%,.741) 46.4%,
+        hsla(0,0%,100%,.648) 52.5%,
+        hsla(0,0%,100%,.55) 57.9%,
+        hsla(0,0%,100%,.45) 63%,
+        hsla(0,0%,100%,.352) 67.7%,
+        hsla(0,0%,100%,.259) 72.3%,
+        hsla(0,0%,100%,.175) 77%,
+        hsla(0,0%,100%,.104) 81.9%,
+        hsla(0,0%,100%,.049) 87.3%,
+        hsla(0,0%,100%,.013) 93.3%,
+        hsla(0,0%,100%,0) 100%);
+}
+
+.theme-dark {
+    --white-to-black: var(--black);
+
+    --white-to-grey-90: var(--grey-90);
+    --grey-90-to-white: var(--white);
+
+    --black-to-grey-20: var(--grey-20);
+
+    --grey-60-to-grey-40: var(--grey-40);
+    --grey-40-to-grey-60: var(--grey-60);
+
+    --grey-10-to-grey-80: var(--grey-80);
+    --grey-20-to-grey-60: var(--grey-60);
+
+    --blue-100: #75baff;
+    --blue-10: rgba(117,186,255,.1);
+    --purple-100: #e08fef;
+    --purple-10: rgba(224,143,239,.1);
+    --pink-100: #ff94db;
+    --pink-10: rgba(255,148,219,.1);
+    --red-100: #ff7575;
+    --red-10: rgba(255,117,117,.1);
+    --brown-100: #efc79d;
+    --brown-10: rgba(239,199,157,.1);
+    --orange-100: #ffba75;
+    --orange-10: rgba(255,186,117,.1);
+    --yellow-100: #ffe875;
+    --yellow-10: rgba(255,232,117,.1);
+    --green-100: #72e097;
+    --green-10: rgba(114,224,151,.1);
+    --bluegreen-100: #b1f3dd;
+    --bluegreen-10: rgba(177,243,221,.1);
+
+    --box-shadow: 0px 0px 16px rgba(225,227,229,.32);
+
+    --overlay: rgba(0,0,0,.4);
+    --fade: linear-gradient(to bottom,
+        hsl(210,3%,15%) 0%,
+        hsla(210,3%,15%,.987) 12%,
+        hsla(210,3%,15%,.951) 22.4%,
+        hsla(210,3%,15%,.896) 31.5%,
+        hsla(210,3%,15%,.825) 39.4%,
+        hsla(210,3%,15%,.741) 46.4%,
+        hsla(210,3%,15%,.648) 52.5%,
+        hsla(210,3%,15%,.55) 57.9%,
+        hsla(210,3%,15%,.45) 63%,
+        hsla(210,3%,15%,.352) 67.7%,
+        hsla(210,3%,15%,.259) 72.3%,
+        hsla(210,3%,15%,.175) 77%,
+        hsla(210,3%,15%,.104) 81.9%,
+        hsla(210,3%,15%,.049) 87.3%,
+        hsla(210,3%,15%,.013) 93.3%,
+        hsla(210,3%,15%,0) 100%);
+}
+
+.theme-light {
+    &.theme-pro-deu { // Protanopia & Deuteranopia
+        --blue-100: #198cff;
+        --blue-10: rgba(25,140,255,.1);
+        --purple-100: #3dcc9c;
+        --purple-10: rgba(61,204,156,.1);
+        --pink-100: #70cc14;
+        --pink-10: rgba(112,204,20,.1);
+        --red-100: #ff6666;
+        --red-10: rgba(255,102,102,.1);
+        --brown-100: #14cc14;
+        --brown-10: rgba(20,204,20,.1);
+        --orange-100: #3dcc3d;
+        --orange-10: rgba(61,204,61,.1);
+        --yellow-100: #ffd819;
+        --yellow-10: rgba(255,216,25,.1);
+        --green-100: #5114cc;
+        --green-10: rgba(81,20,204,.1);
+        --bluegreen-100: #5be5e5;
+        --bluegreen-10: rgba(91,229,229,.1);
+    }
+
+    &.theme-tri { // Tritanopia
+        --blue-100: #117cb2;
+        --blue-10: rgba(17,124,178,.1);
+        --purple-100: #b23411;
+        --purple-10: rgba(178,52,17,.1);
+        --pink-100: #99991e;
+        --pink-10: rgba(153,153,30,.1);
+        --red-100: #ff1a1a;
+        --red-10: rgba(255,26,26,.1);
+        --brown-100: #e55b5b;
+        --brown-10: rgba(229,91,91,.1);
+        --orange-100: #47991e;
+        --orange-10: rgba(71,153,30,.1);
+        --yellow-100: #32cc14;
+        --yellow-10: rgba(50,204,20,.1);
+        --green-100: #1111b2;
+        --green-10: rgba(17,17,178,.1);
+        --bluegreen-100: #5f28cc;
+        --bluegreen-10: rgba(95,40,204,.1);
+    }
+}
+
+.theme-dark {
+    &.theme-pro-deu { // Protanopia & Deuteranopia
+        --blue-100: #75baff;
+        --blue-10: rgba(117,186,255,.1);
+        --purple-100: #8be0c4;
+        --purple-10: rgba(139,224,196,.1);
+        --pink-100: #a9e072;
+        --pink-10: rgba(169,224,114,.1);
+        --red-100: #ffa3a3;
+        --red-10: rgba(255,163,163,.1);
+        --brown-100: #72e072;
+        --brown-10: rgba(114,224,114,.1);
+        --orange-100: #8be08b;
+        --orange-10: rgba(139,224,139,.1);
+        --yellow-100: #ffe875;
+        --yellow-10: rgba(255,232,117,.1);
+        --green-100: #9772e0;
+        --green-10: rgba(151,114,224,.1);
+        --bluegreen-100: #b1f3f3;
+        --bluegreen-10: rgba(177,243,243,.1);
+    }
+
+    &.theme-tri { // Tritanopia
+        --blue-100: #70b0d1;
+        --blue-10: rgba(112,176,209,.1);
+        --purple-100: #d18570;
+        --purple-10: rgba(209,133,112,.1);
+        --pink-100: #c2c278;
+        --pink-10: rgba(194,194,120,.1);
+        --red-100: #ff7575;
+        --red-10: rgba(255,117,117,.1);
+        --brown-100: #ef9d9d;
+        --brown-10: rgba(239,157,157,.1);
+        --orange-100: #91c278;
+        --orange-10: rgba(145,194,120,.1);
+        --yellow-100: #84e072;
+        --yellow-10: rgba(132,224,114,.1);
+        --green-100: #7070d1;
+        --green-10: rgba(112,112,209,.1);
+        --bluegreen-100: #b398e7;
+        --bluegreen-10: rgba(179,152,231,.1);
+    }
+}
+
+/* Color classes */
+$theme-colors: (
+    black: var(--black),
+    white: var(--white),
+    grey-90: var(--grey-90),
+    grey-80: var(--grey-80),
+    grey-60: var(--grey-60),
+    grey-50: var(--grey-50),
+    grey-40: var(--grey-40),
+    grey-20: var(--grey-20),
+    grey-10: var(--grey-10),
+    black-to-grey-20: var(--black-to-grey-20),
+    grey-10-to-grey-80: var(--grey-10-to-grey-80),
+    grey-60-to-grey-40: var(--grey-60-to-grey-40),
+    grey-40-to-grey-60: var(--grey-40-to-grey-60),
+    blue-100: var(--blue-100),
+    blue-10: var(--blue-10),
+    purple-100: var(--purple-100),
+    purple-10: var(--purple-10),
+    pink-100: var(--pink-100),
+    pink-10: var(--pink-10),
+    red-100: var(--red-100),
+    red-10: var(--red-10),
+    brown-100: var(--brown-100),
+    brown-10: var(--brown-10),
+    orange-100: var(--orange-100),
+    orange-10: var(--orange-10),
+    yellow-100: var(--yellow-100),
+    yellow-10: var(--yellow-10),
+    green-100: var(--green-100),
+    green-10: var(--green-10),
+    bluegreen-100: var(--bluegreen-100),
+    bluegreen-10: var(--bluegreen-10)
+);
+
+@each $theme-color,$color in $theme-colors {
+    .#{$theme-color} {
+        color: $color;
+    }
+    .bg-#{$theme-color} {
+        background-color: $color;
+    }
+}

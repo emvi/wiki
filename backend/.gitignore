@@ -1,0 +1,6 @@
+bin/
+pkg/
+article/bucket/
+content/bucket/
+bucket/
+logs/

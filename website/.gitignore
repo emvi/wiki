@@ -1,0 +1,4 @@
+pkg/
+public/node_modules/
+public/dist/
+logs/

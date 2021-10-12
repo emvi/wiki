@@ -1,0 +1,219 @@
+    <script type="text/javascript" src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        AOS.init({
+            duration: 600,
+            easing: "cubic-bezier(0.4, 0.0, 0.2, 1)",
+            once: true,
+            offset: 32
+        });
+
+        // show/hide elements based on user logged in or not
+        let showLoggedIn = document.getElementsByClassName("showLoggedIn");
+        let hideLoggedIn = document.getElementsByClassName("hideLoggedIn");
+
+        function showHideLoggedInElements(loggedIn) {
+            for (let node of showLoggedIn) {
+                node.style.display = !loggedIn ? "none" : "";
+            }
+
+            for (let node of hideLoggedIn) {
+                node.style.display = loggedIn ? "none" : "";
+            }
+        }
+
+        // if the token is set, check the token is still valid
+        let token = getCookie("access_token");
+
+        if(token) {
+            let host = {{.BackendHost}};
+            let config = {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+
+            axios.get(`${host}/api/v1/user`, config)
+            .then(() => {
+                showHideLoggedInElements(true);
+            })
+            .catch(() => {
+                showHideLoggedInElements(false);
+            });
+        }
+        else {
+            showHideLoggedInElements(false);
+        }
+
+        function getCookie(name) {
+            name += "=";
+            let ca = document.cookie.split(';');
+
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+
+                while(c.charAt(0) === ' ') {
+                    c = c.substring(1,c.length);
+                }
+
+                if(c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+
+            return null;
+        }
+
+        // navbar scroll styling
+        let navbar = document.getElementById("navbar");
+        let showNavbarBackground = false;
+
+        function setNavbarStyle() {
+            if(window.scrollY > 0 || showNavbarBackground) {
+                navbar.classList.add("header--dynamic");
+            }
+            else {
+                navbar.classList.remove("header--dynamic");
+            }
+        }
+
+        setNavbarStyle();
+
+        window.addEventListener("scroll", () => {
+            setNavbarStyle();
+        });
+
+        // navbar mobile menu
+        let navbarMobileMenu = document.getElementById("navbarMobileMenu");
+        let navbarMobileMenuOpen = document.getElementById("navbarMobileMenuOpen");
+        let navbarMobileMenuClose = document.getElementById("navbarMobileMenuClose");
+        let navbarMobileMenuDropdown = document.getElementById("navbarMobileMenuDropdown");
+
+        navbarMobileMenuClose.style.display = "none";
+        navbarMobileMenuDropdown.style.display = "none";
+
+        function toggleMobileMenu(ignoreIfClosed) {
+            let hidden = navbarMobileMenuDropdown.style.display;
+
+            if(ignoreIfClosed && hidden) {
+                return;
+            }
+
+            navbarMobileMenuOpen.style.display = hidden ? "none" : "";
+            navbarMobileMenuClose.style.display = hidden ? "" : "none";
+            navbarMobileMenuDropdown.style.display = hidden ? "" : "none";
+
+            if(!hidden) {
+                showNavbarBackground = false;
+
+                if(window.scrollY === 0) {
+                    navbar.classList.remove("header--dynamic");
+                }
+            }
+            else {
+                showNavbarBackground = true;
+                navbar.classList.add("header--dynamic");
+            }
+        }
+
+        navbarMobileMenu.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        document.addEventListener("click", e => {
+            if(!navbarMobileMenuDropdown.contains(e.target)) {
+                toggleMobileMenu(true);
+            }
+        });
+
+        // dark mode
+        if(window.location.pathname === "/") {
+            var darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            let toggleButtons = document.getElementsByClassName("toggleDarkMode");
+
+            function toggleDarkMode() {
+                document.documentElement.className = darkMode ? "theme-dark" : "theme-light";
+                let showDarkMode = document.getElementsByClassName("showDarkMode");
+                let hideDarkMode = document.getElementsByClassName("hideDarkMode");
+
+                for (let node of showDarkMode) {
+                    node.style.display = !darkMode ? "none" : "";
+                }
+
+                for (let node of hideDarkMode) {
+                    node.style.display = darkMode ? "none" : "";
+                }
+            }
+
+            toggleDarkMode();
+
+            for (let button of toggleButtons) {
+                button.addEventListener("click", () => {
+                    darkMode = !darkMode;
+                    toggleDarkMode();
+                });
+            }
+        }
+        else {
+            // hide everything used in dark mode if we're not on landing page
+            let showDarkMode = document.getElementsByClassName("showDarkMode");
+
+            for (let node of showDarkMode) {
+                node.style.display = "none";
+            }
+        }
+
+        // get started forms
+        let getStartedForms = document.getElementsByClassName("getStartedForm");
+
+        for(let node of getStartedForms) {
+            node.addEventListener("submit", e => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let email = node.getElementsByTagName("input")[0].value;
+                window.location = `/registration?email=${email}`;
+            });
+        }
+
+        // scroll to from navigation
+        let scrollToFeatures = document.getElementsByClassName("scrollToFeatures");
+        let scrollToUsecases = document.getElementsByClassName("scrollToUsecases");
+
+        function addScrollTo(nodes, anchor) {
+            for (let node of nodes) {
+                node.addEventListener("click", () => {
+                    toggleMobileMenu();
+                    let section = document.getElementById(anchor);
+
+                    if (window.location.pathname === "/") {
+                        window.scrollTo({top: section.offsetTop, behavior: "smooth"});
+                    } else {
+                        window.location = `/#${anchor}`;
+                    }
+                });
+            }
+        }
+
+        addScrollTo(scrollToFeatures, "features");
+        addScrollTo(scrollToUsecases, "usecases");
+
+        // click on logo navigation
+        let navbarHomeLink = document.getElementById("navbarHomeLink");
+
+        navbarHomeLink.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if(window.location.pathname === "/") {
+                window.scrollTo({top: 0, behavior: "smooth"});
+            }
+            else {
+                window.location = "/";
+            }
+        });
+    </script>
+</body>
+</html>

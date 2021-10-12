@@ -1,0 +1,36 @@
+version: dev
+logging:
+  level: debug
+backend_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviwiki
+auth_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviauth
+dashboard_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviwikidashboard
+mail:
+  sender: "Emvi Team <noreply@emvi.com>"
+  smtp:
+    server: localhost
+    port: 1025
+template:
+  mail_template_dir: ../template/mail/*
+hosts:
+  website: http://localhost.com:4000
+  frontend: http://localhost.com:4002
+  auth: http://localhost.com:4001
+  backend: http://localhost.com:4003
+batch:
+  process: "update_balance"
+newsletter:
+  unsubscribe_uri: http://localhost.com:4000/newsletter/unsubscribe
+stripe:
+  private_key: 

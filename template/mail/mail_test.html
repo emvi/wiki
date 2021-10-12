@@ -1,0 +1,18 @@
+{{template "head.html" "Head Title"}}
+{{template "preheader.html" "Preheader"}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{$greeting := MailGreeting "Custom Greeting!"}}
+{{$goodbye := MailGoodbye "Custom Goodbye!"}}
+{{$paragraph1 := MailParagraph "Paragraph 1"}}
+{{$paragraph2 := MailParagraph "Paragraph 2"}}
+{{MailTextblock $greeting $paragraph1}}
+{{MailButton "button_url" "Button Label" "Or follow this link"}}
+{{MailTextblock $paragraph2 $goodbye}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

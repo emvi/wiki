@@ -1,0 +1,19 @@
+<div class="bottom-bar background--blue-10 no-select">
+    <a href="{{index .EndVars "WebsiteHost"}}/terms" target="_blank" ref="noreferrer">{{index .EndVars "terms"}}</a>
+    <span class="dot">&middot;</span>
+    <a href="{{index .EndVars "WebsiteHost"}}/privacy" target="_blank" ref="noreferrer">{{index .EndVars "privacy"}}</a>
+    <span class="dot">&middot;</span>
+    <a href="{{index .EndVars "WebsiteHost"}}/legal" target="_blank" ref="noreferrer">{{index .EndVars "legal"}}</a>
+</div>
+
+<script>
+    document.addEventListener("change", event => {
+        let element = event.target;
+        if(element && element.matches(".form--element--field")) {
+            element.classList[element.value ? "add" : "remove"]("has-value");
+        }
+    });
+</script>
+
+</body>
+</html>

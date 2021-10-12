@@ -1,0 +1,41 @@
+<div class="background--black">
+    <div class="container">
+        <div class="section-newsletter row">
+            <div class="col-lg-offset-1 col-lg-6 col-md-offset-1 col-md-6 col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
+                <h4>{{index .NewsletterVars "newsletter"}}</h4>
+                <form class="section--signup" id="subscribeNewsletter">
+                    <label for="subscribeNewsletterEmail" style="position: absolute; opacity: 0">{{index .NewsletterVars "your_email"}}</label>
+                    <input type="email" placeholder="{{index .NewsletterVars "name@company.com"}}" id="subscribeNewsletterEmail" />
+                    <button type="submit" class="submit">{{index .NewsletterVars "subscribe"}}</button>
+                </form>
+                <div class="section--disclaimer--error" id="subscribeNewsletterError">{{index .NewsletterVars "newsletter_error"}}</div>
+                <div class="section--disclaimer--success" id="subscribeNewsletterSuccess">{{index .NewsletterVars "newsletter_success"}}</div>
+                <script type="text/javascript">
+                    let form = document.getElementById("subscribeNewsletter");
+                    let error = document.getElementById("subscribeNewsletterError");
+                    let success = document.getElementById("subscribeNewsletterSuccess");
+                    let email = document.getElementById("subscribeNewsletterEmail");
+
+                    error.style.display = "none";
+                    success.style.display = "none";
+
+                    form.addEventListener("submit", e => {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                        axios.post("{{.BackendHost}}/api/v1/newsletter", {email: email.value})
+                        .then(() => {
+                            email.value = "";
+                            error.style.display = "none";
+                            success.style.display = "";
+                        })
+                        .catch(() => {
+                            error.style.display = "";
+                            success.style.display = "none";
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

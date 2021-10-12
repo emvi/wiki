@@ -1,0 +1,49 @@
+logging:
+  level: debug
+migrate:
+  dir: schema
+  db:
+    host: localhost
+    user: postgres
+    password: postgres
+    schema: emviwiki
+backend_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviwiki
+server:
+  host: localhost.com:4003
+  http:
+    tls: false
+    secure_cookies: false
+    timeout:
+      read: 120
+      write: 120
+cors:
+  origins: "*"
+  loglevel: info
+mail:
+  sender: "Emvi Team <noreply@emvi.com>"
+  support_sender: support@emvi.com
+  smtp:
+    server: localhost
+    port: 1025
+template:
+  template_dir: ../template/backend/*
+  mail_template_dir: ../template/mail/*
+  hot_reload: true
+hosts:
+  website: http://localhost.com:4000
+  frontend: http://localhost.com:4002
+  auth: http://localhost.com:4001
+  backend: http://localhost.com:4003
+storage:
+  type: file
+  path: bucket
+auth_client:
+  id: 
+  secret: 
+newsletter:
+  confirmation_uri: http://localhost.com:4000/newsletter/confirm
+  unsubscribe_uri: http://localhost.com:4000/newsletter/unsubscribe

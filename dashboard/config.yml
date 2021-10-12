@@ -1,0 +1,55 @@
+version: dev
+logging:
+  level: debug
+migrate:
+  dir: schema
+  db:
+    host: localhost
+    user: postgres
+    password: postgres
+    schema: emviwikidashboard
+backend_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviwiki
+auth_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviauth
+dashboard_db:
+  host: localhost
+  user: postgres
+  password: postgres
+  schema: emviwikidashboard
+server:
+  host: localhost.com:8080
+  http:
+    tls: false
+    secure_cookies: false
+    timeout:
+      read: 5
+      write: 5
+cors:
+  origins: "*"
+  loglevel: info
+mail:
+  sender: "Emvi Team <noreply@emvi.com>"
+  support_sender: support@emvi.com
+  smtp:
+    server: localhost
+    port: 1025
+template:
+  template_dir: ../template/dashboard/*
+  mail_template_dir: ../template/mail/*
+  hot_reload: true
+hosts:
+  mail: http://localhost.com:8080
+  collab: http://localhost.com:4004
+storage:
+  type: file
+  path: bucket
+jwt:
+  public_key: secrets/token.public
+  private_key: secrets/token.private

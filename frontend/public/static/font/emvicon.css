@@ -1,0 +1,580 @@
+/*--------------------------------
+
+Emvicon Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@font-face {
+  font-family: 'Emvicon';
+  src: url('./Emvicon.eot');
+  src: url('./Emvicon.eot') format('embedded-opentype'), url('./Emvicon.woff2') format('woff2'), url('./Emvicon.woff') format('woff'), url('./Emvicon.ttf') format('truetype'), url('./Emvicon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*------------------------
+	base class definition
+-------------------------*/
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'Emvicon';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*------------------------
+  change icon size
+-------------------------*/
+/* relative units */
+.icon-sm {
+  font-size: 0.8em;
+}
+.icon-lg {
+  font-size: 1.2em;
+}
+/* absolute units */
+.icon-16 {
+  font-size: 16px;
+}
+.icon-32 {
+  font-size: 32px;
+}
+/*----------------------------------
+  add a square/circle background
+-----------------------------------*/
+.icon-bg-square,
+.icon-bg-circle {
+  padding: 0.35em;
+  background-color: #eee;
+}
+.icon-bg-circle {
+  border-radius: 50%;
+}
+/*------------------------------------
+  use icons as list item markers
+-------------------------------------*/
+.icon-ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.icon-ul > li {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+.icon-ul > li > .icon {
+  margin-right: 0.4em;
+  line-height: inherit;
+}
+/*------------------------
+  spinning icons
+-------------------------*/
+.icon-is-spinning {
+  -webkit-animation: icon-spin 2s infinite linear;
+  -moz-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes icon-spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/*------------------------
+  rotated/flipped icons
+-------------------------*/
+.icon-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.icon-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.icon-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.icon-flip-y {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.icon-flip-x {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+/*------------------------
+	icons
+-------------------------*/
+
+.icon-activity::before {
+  content: "\ea01";
+}
+
+.icon-add-column::before {
+  content: "\ea02";
+}
+
+.icon-add-filter::before {
+  content: "\ea03";
+}
+
+.icon-add-row::before {
+  content: "\ea04";
+}
+
+.icon-add-user::before {
+  content: "\ea05";
+}
+
+.icon-add::before {
+  content: "\ea06";
+}
+
+.icon-archive::before {
+  content: "\ea08";
+}
+
+.icon-arrow::before {
+  content: "\ea09";
+}
+
+.icon-article::before {
+  content: "\ea07";
+}
+
+.icon-at::before {
+  content: "\ea0a";
+}
+
+.icon-back::before {
+  content: "\ea0b";
+}
+
+.icon-billing::before {
+  content: "\ea0c";
+}
+
+.icon-bold::before {
+  content: "\ea0d";
+}
+
+.icon-bookmark::before {
+  content: "\ea0e";
+}
+
+.icon-calender::before {
+  content: "\ea0f";
+}
+
+.icon-check::before {
+  content: "\ea10";
+}
+
+.icon-checkbox::before {
+  content: "\ea11";
+}
+
+.icon-chevron::before {
+  content: "\ea12";
+}
+
+.icon-circle-12::before {
+  content: "\ea13";
+}
+
+.icon-circle-18::before {
+  content: "\ea14";
+}
+
+.icon-close::before {
+  content: "\ea15";
+}
+
+.icon-code::before {
+  content: "\ea16";
+}
+
+.icon-color::before {
+  content: "\ea17";
+}
+
+.icon-command::before {
+  content: "\ea18";
+}
+
+.icon-compass::before {
+  content: "\ea19";
+}
+
+.icon-connect::before {
+  content: "\ea1a";
+}
+
+.icon-copy::before {
+  content: "\ea1b";
+}
+
+.icon-delete-column::before {
+  content: "\ea1c";
+}
+
+.icon-delete-row::before {
+  content: "\ea1d";
+}
+
+.icon-delete-table::before {
+  content: "\ea1e";
+}
+
+.icon-disconnect::before {
+  content: "\ea1f";
+}
+
+.icon-download::before {
+  content: "\ea20";
+}
+
+.icon-edit::before {
+  content: "\ea21";
+}
+
+.icon-enlarge::before {
+  content: "\ea23";
+}
+
+.icon-error::before {
+  content: "\ea22";
+}
+
+.icon-expand::before {
+  content: "\ea24";
+}
+
+.icon-file::before {
+  content: "\ea25";
+}
+
+.icon-filter::before {
+  content: "\ea26";
+}
+
+.icon-flash::before {
+  content: "\ea27";
+}
+
+.icon-follow::before {
+  content: "\ea28";
+}
+
+.icon-globe::before {
+  content: "\ea29";
+}
+
+.icon-group::before {
+  content: "\ea2a";
+}
+
+.icon-h1::before {
+  content: "\ea2b";
+}
+
+.icon-h2::before {
+  content: "\ea2c";
+}
+
+.icon-h3::before {
+  content: "\ea2d";
+}
+
+.icon-header-cell::before {
+  content: "\ea2e";
+}
+
+.icon-header-column::before {
+  content: "\ea2f";
+}
+
+.icon-header-row::before {
+  content: "\ea30";
+}
+
+.icon-help::before {
+  content: "\ea31";
+}
+
+.icon-history::before {
+  content: "\ea32";
+}
+
+.icon-home::before {
+  content: "\ea33";
+}
+
+.icon-hr::before {
+  content: "\ea34";
+}
+
+.icon-img::before {
+  content: "\ea35";
+}
+
+.icon-info::before {
+  content: "\ea36";
+}
+
+.icon-infobox::before {
+  content: "\ea37";
+}
+
+.icon-italic::before {
+  content: "\ea38";
+}
+
+.icon-key::before {
+  content: "\ea39";
+}
+
+.icon-library::before {
+  content: "\ea3a";
+}
+
+.icon-light::before {
+  content: "\ea3b";
+}
+
+.icon-link::before {
+  content: "\ea3c";
+}
+
+.icon-list::before {
+  content: "\ea3d";
+}
+
+.icon-lock::before {
+  content: "\ea3e";
+}
+
+.icon-login::before {
+  content: "\ea3f";
+}
+
+.icon-logout::before {
+  content: "\ea40";
+}
+
+.icon-mail::before {
+  content: "\ea41";
+}
+
+.icon-menu::before {
+  content: "\ea42";
+}
+
+.icon-merge-cell::before {
+  content: "\ea43";
+}
+
+.icon-minimize::before {
+  content: "\ea44";
+}
+
+.icon-more::before {
+  content: "\ea45";
+}
+
+.icon-night::before {
+  content: "\ea46";
+}
+
+.icon-notification::before {
+  content: "\ea47";
+}
+
+.icon-ol::before {
+  content: "\ea48";
+}
+
+.icon-organization::before {
+  content: "\ea49";
+}
+
+.icon-p::before {
+  content: "\ea4a";
+}
+
+.icon-pin::before {
+  content: "\ea4b";
+}
+
+.icon-publish::before {
+  content: "\ea4c";
+}
+
+.icon-quote::before {
+  content: "\ea4d";
+}
+
+.icon-redo::before {
+  content: "\ea4e";
+}
+
+.icon-refresh::before {
+  content: "\ea4f";
+}
+
+.icon-restore::before {
+  content: "\ea50";
+}
+
+.icon-save::before {
+  content: "\ea51";
+}
+
+.icon-search::before {
+  content: "\ea52";
+}
+
+.icon-seen::before {
+  content: "\ea53";
+}
+
+.icon-send::before {
+  content: "\ea54";
+}
+
+.icon-settings::before {
+  content: "\ea55";
+}
+
+.icon-setup::before {
+  content: "\ea57";
+}
+
+.icon-share::before {
+  content: "\ea56";
+}
+
+.icon-shrink::before {
+  content: "\ea58";
+}
+
+.icon-sort::before {
+  content: "\ea59";
+}
+
+.icon-split-cell::before {
+  content: "\ea5a";
+}
+
+.icon-stats::before {
+  content: "\ea5b";
+}
+
+.icon-strike::before {
+  content: "\ea5c";
+}
+
+.icon-sub::before {
+  content: "\ea5d";
+}
+
+.icon-sup::before {
+  content: "\ea5e";
+}
+
+.icon-support::before {
+  content: "\ea5f";
+}
+
+.icon-sync::before {
+  content: "\ea60";
+}
+
+.icon-table::before {
+  content: "\ea61";
+}
+
+.icon-tag::before {
+  content: "\ea62";
+}
+
+.icon-trash::before {
+  content: "\ea63";
+}
+
+.icon-u::before {
+  content: "\ea64";
+}
+
+.icon-ul::before {
+  content: "\ea65";
+}
+
+.icon-undo::before {
+  content: "\ea66";
+}
+
+.icon-unlock::before {
+  content: "\ea67";
+}
+
+.icon-upload::before {
+  content: "\ea68";
+}
+
+.icon-user::before {
+  content: "\ea69";
+}
+
+.icon-view::before {
+  content: "\ea6a";
+}
+

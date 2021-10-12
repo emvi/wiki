@@ -1,0 +1,14 @@
+{{$cancelSub := printf "" (index .Vars "unsubscribe") }}
+
+{{template "head.html" .Subject}}
+{{template "preheader.html" .Subject}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock .Content}}
+
+{{template "text_block_end.html"}}
+{{template "subscription.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

@@ -1,0 +1,64 @@
+{{template "head.html" .}}
+{{template "navbar.html" .}}
+
+<div class="content">
+    <div class="row">
+        <div class="card">
+            <h2>Upload</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" value="Upload" />
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="card">
+            <h2>Files</h2>
+            <table>
+                <thead>
+                <tr>
+                    <td style="width: 25%;">Filename</td>
+                    <td style="width: 50%;">URL</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                    {{$mailHost := .Vars.MailHost}}
+                    {{range $file := .Vars.Files}}
+                        <tr>
+                            <td>{{$file.OriginalFilename}}</td>
+                            <td>
+                                <a href="{{$mailHost}}/content/{{$file.Filename}}" target="_blank">{{$mailHost}}/content/{{$file.Filename}}</a>
+                            </td>
+                            <td>
+                                <button class="button delete-file" data-id="{{$file.ID | IdToString}}">Delete</button>
+                            </td>
+                        </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    let deleteFiles = document.getElementsByClassName("delete-file");
+
+    for(button of deleteFiles) {
+        button.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let id = e.target.getAttribute("data-id");
+
+            if (confirm("Are you sure you want to delete this file?")) {
+                axios.delete(`/file/${id}`)
+                    .then(() => {
+                        location.reload();
+                    });
+            }
+        });
+    }
+</script>
+
+{{template "end.html" .}}

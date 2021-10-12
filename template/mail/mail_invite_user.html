@@ -1,0 +1,16 @@
+{{$title := printf "%s %s %s <strong>%s</strong> %s" .User.Firstname .User.Lastname (index .Vars "title-1") .Organization.Name (index .Vars "title-2")}}
+{{$url := printf "%s?code=%s&email=%s" .URL .Code .Email}}
+
+{{template "head.html" $title}}
+{{template "preheader.html" $title}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph (printf "%s %s" $title (index .Vars "text")))}}
+{{MailButton $url (index .Vars "action") (index .Vars "link") (MailGoodbye (index .Vars "goodbye"))}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

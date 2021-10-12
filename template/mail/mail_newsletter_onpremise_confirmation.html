@@ -1,0 +1,23 @@
+{{$url := printf "%s?code=%s" .URLconfirm .Code}}
+{{$cancelUrl := printf "%s?code=%s" .URLunsub .Code}}
+{{$cancel := printf "%s <a href=\"%s\" target=\"_blank\">%s</a>" (index .Vars "cancel") $cancelUrl $cancelUrl}}
+
+{{template "head.html" (index .Vars "title")}}
+{{template "preheader.html" (index .Vars "title")}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{if .Confirmed}}
+    {{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph (index .Vars "text_confirmed"))}}
+    {{MailTextblock (MailParagraph $cancel) (MailGoodbye (index .Vars "goodbye"))}}
+{{else}}
+    {{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph (index .Vars "text"))}}
+    {{MailButton $url (index .Vars "action") (index .Vars "link")}}
+    {{MailTextblock (MailParagraph $cancel) (MailGoodbye (index .Vars "goodbye"))}}
+{{end}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

@@ -1,0 +1,51 @@
+<nav id="navbar" class="header no-select">
+    <div class="container">
+        <div class="row center-lg center-md center-sm center-xs">
+            <div class="row col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="header--left start-xs">
+                    <a href="/" class="header--wordmark" id="navbarHomeLink">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 27" width="100%" height="100%">
+                            <path d="M74 8h-4v18h4V8zm-2-2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 1 0 0 5zM48 
+                            8l6.626 15.995A3.65 3.65 0 0 0 58 26.25c1.477 0 2.8-.9 3.374-2.254L68 
+                            8h-4.33L58 21.7 52.33 8H48zM23 9.76c1.37-1.23 3.158-2 5-2 2.208 0 4.177 
+                            1.022 5.46 2.62C35.294 8.8 37.844 7.76 40 7.76a7 7 0 0 1 7 7V26h-4V15a3.5 
+                            3.5 0 0 0-3.5-3.5c-2.5 0-4.5 2-4.5 3.65V26h-4V15a3.5 3.5 0 0 0-3.5-3.5c-2.5 
+                            0-4.5 2-4.5 3.65V26h-4V8h4v1.76zM4 4v7h10v4H4v7h12v4H0V0h16v4H4z"/>
+                        </svg>
+                    </a>
+                </div>
+                <ul class="hide-md header--center">
+                    <li class="scrollToFeatures">{{index .NavbarVars "features"}}</li>
+                    <li class="scrollToUsecases">{{index .NavbarVars "use_cases"}}</li>
+                    <li><a href="/pricing">{{index .NavbarVars "pricing"}}</a></li>
+                    <li><a href="/blog">{{index .NavbarVars "blog"}}</a></li>
+                </ul>
+                <div class="end-xs hide-md header--right">
+                    <a href="{{.AuthHost}}/auth/authorize?response_type=token&client_id={{.AuthClientID}}&redirect_uri={{.WebsiteHost}}/organizations" class="header--secondary hideLoggedIn">{{index .NavbarVars "login"}}</a>
+                    <a href="/registration" class="header--primary hideLoggedIn" style="display: none">{{index .NavbarVars "try"}}</a>
+                    <a href="/organizations" class="header--primary showLoggedIn" style="display: none">{{index .NavbarVars "organizations"}}</a>
+                </div>
+                <div class="show-md header--center"></div>
+                <div class="end-xs show-md header--right">
+                    <div id="navbarMobileMenu">
+                        <i class="icon icon-menu" id="navbarMobileMenuOpen"></i>
+                        <i class="icon icon-close-large" id="navbarMobileMenuClose" style="display: none"></i>
+                    </div>
+                </div>
+                <ul class="header--menu show-md" id="navbarMobileMenuDropdown" style="display: none">
+                    <li class="showLoggedIn" style="display: none"><a href="/organizations" class="header--primary">{{index .NavbarVars "organizations"}}</a></li>
+                    <div class="spacer-16 showLoggedIn" style="display: none"></div>
+                    <li class="hideLoggedIn" style="display: none"><a href="/registration" class="header--primary">{{index .NavbarVars "try"}}</a></li>
+                    <div class="spacer-16 hideLoggedIn" style="display: none"></div>
+                    <li class="hideLoggedIn" style="display: none">
+                        <a href="{{.AuthHost}}/auth/authorize?response_type=token&client_id={{.AuthClientID}}&redirect_uri={{.WebsiteHost}}/organizations" class="header--secondary">{{index .NavbarVars "login"}}</a>
+                    </li>
+                    <li class="scrollToFeatures">{{index .NavbarVars "features"}}</li>
+                    <li class="scrollToUsecases">{{index .NavbarVars "use_cases"}}</li>
+                    <li><a href="/pricing">{{index .NavbarVars "pricing"}}</a></li>
+                    <li><a href="/blog">{{index .NavbarVars "blog"}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

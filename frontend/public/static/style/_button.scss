@@ -1,0 +1,44 @@
+/* Button */
+button,
+a.button {
+    height: 48px;
+    max-width: 512px;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 24px 16px 16px 0;
+    padding: 0 24px;
+    background-color: var(--grey-10-to-grey-80);
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover:not(:disabled), &:focus:not(:disabled) {
+        box-shadow: 0 0 0 1px currentColor;
+    }
+
+    &:disabled {
+        color: var(--grey-50);
+        background-color: var(--grey-10-to-grey-80);
+        cursor: default;
+    }
+
+    .icon {
+        width: 40px;
+        margin: 0 4px 0 -12px;
+    }
+
+    .label {
+        flex: 1;
+        text-align: left;
+    }
+
+    .key {
+        margin: 0 -8px 0 4px;
+        padding: 2px 4px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--black-to-grey-20);
+        background-color: var(--white-to-grey-90);
+        border-radius: 4px;
+    }
+}

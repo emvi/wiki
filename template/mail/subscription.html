@@ -1,0 +1,31 @@
+<tr>
+    <td align="center" style="padding: 24px;">
+        <!--[if (gte mso 9)|(IE)]>
+        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+            <tr>
+                <td align="center" valign="top" width="600">
+        <![endif]-->
+
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+            <tr>
+                <td align="center" style="padding: 0 24px; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #555759;">
+                    <p style="margin: 24px 0;">
+                        {{index .Vars "unsubscribe"}} <a href="{{.URLunsub}}?code={{.NewsletterSubscriptionCode}}" target="_blank">{{index .Vars "unsubscribe_link_text"}}</a>.
+                    </p>
+                    <p style="margin: 0;">
+                        <a href="{{index .EndVars "WebsiteHost"}}{{index .EndVars "terms_url"}}" target="_blank" rel="noreferrer" style="padding: 0 4px 0 4px;">{{index .EndVars "end_terms"}}</a>
+                        <a href="{{index .EndVars "WebsiteHost"}}{{index .EndVars "privacy_url"}}" target="_blank" rel="noreferrer" style="padding: 0 4px 0 4px;">{{index .EndVars "end_privacy"}}</a>
+                        <a href="{{index .EndVars "WebsiteHost"}}{{index .EndVars "legal_url"}}" target="_blank" rel="noreferrer" style="padding: 0 4px 0 4px;">{{index .EndVars "end_legal"}}</a>
+                    </p>
+                    <p style="margin: 0;">{{index .EndVars "end_copyright"}}</p>
+                </td>
+            </tr>
+        </table>
+
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</tr>

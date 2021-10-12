@@ -1,0 +1,35 @@
+/* For use in cards, cmd results or similar */
+.item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+
+    p,
+    small {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    u {
+        position: relative;
+        text-decoration: none;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            background-color: currentColor;
+        }
+    }
+
+    & + small {
+        white-space: nowrap;
+    }
+}

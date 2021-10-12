@@ -1,0 +1,98 @@
+/* Setup for everything */
+*,
+*::before,
+*::after {
+    font: inherit;
+    color: inherit;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove focus outline */
+*:focus {
+    outline: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd,
+fieldset {
+    margin: 0;
+}
+
+/* Set core body defaults */
+body {
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+
+    &:not(:-moz-handler-blocked) fieldset {
+        display: table-cell;
+    }
+}
+
+/* Remove styles on ul, ol elements */
+ul,
+ol {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+    padding: 0;
+}
+
+/* Remove style from a elements */
+a {
+    text-decoration: none;
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Remove style from input */
+input {
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+/* Remove style from fieldset */
+fieldset {
+    min-width: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Remove style from button */
+button {
+    border: none;
+    outline: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

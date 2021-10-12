@@ -1,0 +1,119 @@
+{{if .RenderArticlesOnly}}
+    {{if len .Articles}}
+        {{range .Articles}}
+            {{template "blog_card.html" .}}
+        {{end}}
+    {{else}}
+        {{index .Vars "no_results"}}
+    {{end}}
+{{else}}
+    {{template "head.html" .}}
+    {{template "navbar.html" .}}
+
+    <div class="background--grey-20-to-grey-60">
+        <div class="container">
+            <div class="row center-lg center-md">
+                <div class="blog-header row col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                    <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4 start-lg start-md start-sm start-xs">
+                        <a href="/blog" class="blog-header--title">{{index .Vars "title"}}</a>
+                    </div>
+                    <div class="blog-header--search col-lg-5 col-md-5 col-sm-8 col-xs-8">
+                        <i class="icon icon-search-large"></i>
+                        <input type="text" name="search" placeholder="{{index .Vars "search_placeholder"}}" id="blogSearch" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="background--grey-20-to-grey-60">
+        <div class="container">
+            <div class="row center-lg center-md">
+                <div class="blog-list col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                    <div id="blogArticles">
+                        {{range .Articles}}
+                            {{template "blog_card.html" .}}
+                        {{end}}
+                    </div>
+
+                    {{if gt .ArticleCount .ArticlesPerPage}}
+                        <!-- TODO load more -->
+                        <button class="blog-list--load" id="blogShowMore">{{index .Vars "load_more"}}</button>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // article search
+        let search = document.getElementById("blogSearch");
+        let articles = document.getElementById("blogArticles");
+        let showMore = document.getElementById("blogShowMore");
+        let getResults = debounce((query) => {
+            axios.get("/blog", {params: {query, articles_only: true}})
+            .then(r => {
+                articles.innerHTML = r.data;
+
+                if(showMore) {
+                    if(query === "") {
+                        showMore.style.display = "";
+                    }
+                    else {
+                        showMore.style.display = "none";
+                    }
+                }
+            });
+        }, 500);
+
+        search.addEventListener("input", () => {
+            getResults(search.value);
+        });
+
+        function debounce(func, wait, immediate) {
+            let timeout;
+
+            return function() {
+                let context = this;
+                let args = arguments;
+
+                let later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+
+                let callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+
+                if(callNow){
+                    func.apply(context, args);
+                }
+            };
+        }
+
+        // load more articles
+        let offset = {{.ArticlesPerPage}};
+
+        if(showMore) {
+            showMore.addEventListener("click", () => {
+                axios.get("/blog", {params: {offset, articles_only: true}})
+                .then(r => {
+                    offset += {{.ArticlesPerPage}};
+                    let cards = r.data.match(/blog-list--card/g);
+                    let resultCount = cards ? cards.length : 0;
+
+                    if(resultCount > 0) {
+                        articles.innerHTML += r.data;
+                    }
+
+                    if(resultCount < {{.ArticlesPerPage}}) {
+                        showMore.style.display = "none";
+                    }
+                });
+            });
+        }
+    </script>
+
+    {{template "newsletter.html" .}}
+    {{template "footer.html" .}}
+    {{template "end.html" .}}
+{{end}}

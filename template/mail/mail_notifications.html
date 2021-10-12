@@ -1,0 +1,22 @@
+{{$preheader := printf "%s %d %s" (index .Vars "text-1") .Member.SendNotificationsInterval (index .Vars "text-2")}}
+
+{{template "head.html" (index .Vars "title")}}
+{{template "preheader.html" $preheader}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph $preheader)}}
+{{MailNotificationsStart}}
+
+{{range .Notifications}}
+    {{MailNotification .Feed.TriggeredByUser .Text .When}}
+{{end}}
+
+{{MailNotificationsEnd}}
+{{MailTextblock (MailParagraph (index .Vars "text-3")) (MailGoodbye (index .Vars "goodbye"))}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

@@ -1,0 +1,38 @@
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform .15s var(--bezier-standard);
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+
+    &.size-48 .initials {
+        font-size: 16px;
+    }
+
+    i, 
+    img,
+    .initials {
+        width: 100%;
+        height: inherit;
+    }
+
+    img {
+        object-fit: cover;
+    }
+
+    .initials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}

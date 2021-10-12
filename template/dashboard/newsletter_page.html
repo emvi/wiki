@@ -1,0 +1,58 @@
+{{template "head.html" .}}
+{{template "navbar.html" .}}
+
+<div class="content">
+    <div class="row">
+        <div class="card">
+            <h2>Newsletter</h2>
+            <a href="/newsletter/create" class="button">Write Newsletter</a>
+            <table>
+                <thead>
+                <tr>
+                    <td style="width: 50%;">Subject</td>
+                    <td style="width: 15%;">Status</td>
+                    <td style="width: 15%;">Scheduled Date</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                {{range $newsletter := .Vars.Newsletter}}
+                    <tr>
+                        <td>{{$newsletter.Subject}}</td>
+                        <td>{{$newsletter.Status}}</td>
+                        <td>{{FormatDate $newsletter.Scheduled "2006-01-02"}}</td>
+                        <td>
+                            {{if (eq $newsletter.Status "planned")}}
+                                <a href="/newsletter/edit/{{$newsletter.ID | IdToString}}" class="button">Edit</a>
+                                <button class="button delete-newsletter" data-id="{{$newsletter.ID | IdToString}}">Delete</button>
+                            {{end}}
+                        </td>
+                    </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    let deleteNewsletter = document.getElementsByClassName("delete-newsletter");
+
+    for(button of deleteNewsletter) {
+        button.addEventListener("click", e => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            let id = e.target.getAttribute("data-id");
+
+            if (confirm("Are you sure you want to delete this newsletter?")) {
+                axios.delete(`/newsletter/${id}`)
+                .then(() => {
+                    location.reload();
+                });
+            }
+        });
+    }
+</script>
+
+{{template "end.html" .}}

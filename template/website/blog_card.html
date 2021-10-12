@@ -1,0 +1,16 @@
+<div onclick="location.href = '/blog/{{.Slug}}'" class="blog-list--card row reverse cursor-pointer">
+    <div class="blog-list--pic col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <img src="{{.Article.PreviewImage}}" alt="Pic">
+    </div>
+    <div class="blog-list--item col-lg-7 col-md-7 col-sm-12 col-xs-12 start-lg start-md start-sm start-xs">
+        <div class="blog-list--item--title">
+            <h2>{{.Article.LatestArticleContent.Title}}</h2>
+        </div>
+        <div class="blog-list--item--text">
+            {{.Content}}
+        </div>
+        <div class="blog-list--item--info">
+            {{.Article.Published.Format "2. January 2006"}}
+        </div>
+    </div>
+</div>

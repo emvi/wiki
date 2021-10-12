@@ -1,0 +1,40 @@
+{{template "head.html" .}}
+{{template "navbar.html" .}}
+
+<div class="background--grey-20-to-grey-60">
+    <div class="container">
+        <div class="row center-lg center-md">
+            <div class="blog-header row col-lg-8 col-md-10 col-sm-12 col-xs-12">
+                <div class="col-lg-7 col-md-7 col-sm-4 col-xs-4 start-lg start-md start-sm start-xs">
+                    <a href="/blog" class="blog-header--title">{{index .Vars "title"}}</a>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-8 col-xs-8 end-lg end-md end-sm end-xs">
+                    <a href="/blog" class="blog-header--link">{{index .Vars "back"}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="background--grey-20-to-grey-60">
+    <div class="container">
+        <div class="row center-lg center-md">
+            <div class="blog-article col-lg-8 col-md-10 col-sm-12 col-xs-12 start-lg start-md start-sm start-xs">
+                <div class="blog-article--card">
+                    <div class="article-title">
+                        <h1>{{.Title}}</h1>
+                    </div>
+                    <div class="article-info">
+                        {{.Article.Published.Format "2. January 2006"}}
+                    </div>
+                    <div class="article-content">
+                        {{.Content}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{template "newsletter.html" .}}
+{{template "footer.html" .}}
+{{template "end.html" .}}

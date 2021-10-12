@@ -1,0 +1,39 @@
+{{$title := ""}}
+{{if .Article}}
+  {{$title = printf "%s %s %s %s %s" .User.Firstname .User.Lastname (index .Vars "title-1") .Article.LatestArticleContent.Title (index .Vars "title-2")}}
+{{else}}
+  {{$title = printf "%s %s %s" .User.Firstname .User.Lastname (index .Vars "title-3")}}
+{{end}}
+
+{{$preheader := ""}}
+{{if and .Article}}
+  {{$preheader = printf "%s %s %s %s %s" .User.Firstname .User.Lastname (index .Vars "title-1") .Article.LatestArticleContent.Title (index .Vars "title-2")}}
+{{else}}
+  {{$preheader = (index .Vars "title-3")}}
+{{end}}
+
+{{$message := ""}}
+{{if .Message}}
+  {{$message = (MailParagraph .Message)}}
+{{end}}
+
+{{$url := ""}}
+{{if .Article}}
+  {{$url = printf "%s/%s/%s?lang=%s" .OrgaURL .Path .ArticleId .LangId}}
+{{else}}
+  {{$url = printf "%s/%s/?room=%s" .OrgaURL .Path .RoomId}}
+{{end}}
+
+{{template "head.html" $title}}
+{{template "preheader.html" $preheader}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph $preheader) $message}}
+{{MailButton $url (index .Vars "action") (index .Vars "link") (MailGoodbye (index .Vars "goodbye"))}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

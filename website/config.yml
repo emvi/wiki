@@ -1,0 +1,44 @@
+version: dev
+is_integration: true
+recaptcha_client_secret: 
+logging:
+  level: debug
+server:
+  host: localhost.com:4000
+  http:
+    tls: false
+    secure_cookies: false
+    timeout:
+      read: 5
+      write: 5
+cors:
+  origins: "*"
+  loglevel: info
+template:
+  template_dir: ../template/website/*
+  hot_reload: true
+hosts:
+  website: http://localhost.com:4000
+  frontend: http://localhost.com:4002
+  auth: http://localhost.com:4001
+  backend: http://localhost.com:4003
+auth_client:
+  id: 9lrodHgg0z4EGCe9dTJ1
+blog_client:
+  id: 
+  secret: 
+  organization: emvi-blog
+  auth_host: https://auth.emvi-integration.com
+  api_host: https://api.emvi-integration.com
+sso:
+  google:
+    id: 
+  github:
+    id: 
+  slack:
+    id: 
+  microsoft:
+    id: 
+dev:
+  watch_build_js: true
+  watch_index_html: true

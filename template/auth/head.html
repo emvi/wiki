@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="theme-light">
+<head>
+	<base href="/" />
+	<meta charset="utf-8" />
+	<meta name="name" content="{{index .HeadVars "meta_name"}}">
+	<meta name="description" content="{{index .HeadVars "meta_description"}}">
+	<meta name="image" content="{{index .HeadVars "meta_image"}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta name="copyright" content="Emvi Software GmbH" />
+	<meta name="author" content="Emvi Software GmbH" />
+	<meta name="msapplication-TileColor" content="#000000" />
+	<meta name="theme-color" content="#000000" />
+	<meta name="twitter:card" content="product" />
+	<meta name="twitter:site" content="@emvi" />
+	<meta name="twitter:title" content="Emvi — Knowledge management platform for companies and teams." />
+	<meta name="twitter:description" content="Whether it's documentation, tutorials or your internal newsletter. Emvi lets anyone in your company find, retain and share information — in real-time." />
+	<meta name="twitter:image" content="https://emvi.com/static/img/twitter-card.png" />
+	<meta property="og:url" content="https://emvi.com/" />
+	<meta property="og:title" content="Emvi — Knowledge management platform for companies and teams." />
+	<meta property="og:description" content="Whether it's documentation, tutorials or your internal newsletter. Emvi lets anyone in your company find, retain and share information — in real-time." />
+	<meta property="og:image" content="https://emvi.com/static/img/twitter-card.png" />
+
+	<link rel="stylesheet" type="text/css" href="auth/static/font/inter.css" />
+	<link rel="stylesheet" type="text/css" href="auth/static/style/flexboxgrid.css" />
+	<link rel="stylesheet" type="text/css" href="auth/static/website.css" />
+	<link rel="apple-touch-icon" sizes="180x180" href="auth/static/img/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="auth/static/img/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="auth/static/img/favicon-16x16.png" />
+	<link rel="mask-icon" href="auth/static/img/safari-pinned-tab.svg" color="#198CFF" />
+
+	<title>{{index .HeadVars "head_title"}}</title>
+</head>
+<body>
+
+<div id="navBar" class="header header--scroll background--blue-10 no-select">
+	<div class="container">
+		<div class="row center-lg center-md center-sm center-xs">
+			<div class="row col-lg-10 col-md-12 col-sm-12 col-xs-12">
+				<a href="{{.WebsiteHost}}" class="header--wordmark">
+					<img src="auth/static/img/wordmark-black.svg" alt="Emvi" />
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

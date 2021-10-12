@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{.LangCode}}" class="theme-light">
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="copyright" content="Emvi Software GmbH" />
+    <meta name="author" content="Emvi Software GmbH" />
+    <meta name="title" content="{{index .Vars "page_title"}}" />
+    <meta name="description" content="{{index .Vars "hero_text"}}" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="twitter:card" content="product" />
+    <meta name="twitter:site" content="@emvi" />
+    <meta name="twitter:title" content="{{index .Vars "page_title"}}" />
+    <meta name="twitter:description" content="{{index .Vars "hero_text"}}" />
+    <meta name="twitter:image" content="https://emvi.com/static/img/twitter-card.png" />
+    <meta property="og:url" content="https://emvi.com/" />
+	<meta property="og:title" content="{{index .Vars "page_title"}}" />
+	<meta property="og:description" content="{{index .Vars "hero_text"}}" />
+	<meta property="og:image" content="https://emvi.com/static/img/twitter-card.png" />
+
+    {{if .IsIntegration}}
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
+    {{end}}
+
+    <link rel="stylesheet" type="text/css" href="static/font/inter.css?version={{.Version}}" />
+    <link rel="stylesheet" type="text/css" href="static/font/emvicon.css?version={{.Version}}" />
+    <link rel="stylesheet" type="text/css" href="static/style/flexboxgrid.css?version={{.Version}}" />
+
+    {{if .IsBlog}}
+        <link rel="stylesheet" type="text/css" href="static/blog.css?version={{.Version}}" />
+
+        {{if .Published}}
+            <meta property="og:type" content="article" />
+            <meta property="article:published_time" content="{{.Published}}" />
+        {{end}}
+    {{else}}
+        <link rel="stylesheet" type="text/css" href="static/website.css?version={{.Version}}" />
+    {{end}}
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?version={{.Version}}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/img/favicon-32x32.png?version={{.Version}}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon-16x16.png?version={{.Version}}" />
+    <link rel="mask-icon" href="static/img/safari-pinned-tab.svg?version={{.Version}}" color="#198CFF" />
+    <script type="text/javascript" src="https://api.pirsch.io/pirsch.js" id="pirschjs" data-code="8I5r2w3OWuoGOOt0saaLH3vWGfcTvCOL"></script>
+
+    <title>{{index .Vars "page_title"}}</title>
+
+    {{.CookiesNote}}
+</head>
+<body>

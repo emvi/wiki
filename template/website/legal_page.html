@@ -1,0 +1,57 @@
+{{template "head.html" .}}
+{{template "navbar.html" .}}
+
+<section>
+    <div class="container row center-lg center-md">
+        <div class="col-lg-6 col-md-8 start-lg start-md section-info">
+            <h1>{{index .Vars "title"}}</h1>
+            <h2>{{index .Vars "subtitle"}}</h2>
+            <p>
+                Emvi Software GmbH<br>
+                Farnweg 6<br>
+                33378 Rheda-Wiedenbrück<br>
+                {{index .Vars "germany"}}<br>
+                <a href="mailto:contact@emvi.com">contact@emvi.com</a>
+            </p>
+            <h2>{{index .Vars "director"}}</h2>
+            <p>
+                Marvin Blum<br>
+                Daniel Schramm<br>
+            </p>
+            <h2>{{index .Vars "legal"}}</h2>
+            <p>
+                HRB 11575<br>
+                {{index .Vars "court"}}<br>
+                {{index .Vars "vatid"}}<br>
+            </p>
+            <br />
+            <h2>{{index .Vars "disclaimer"}}</h2>
+            <p>
+                <strong>{{index .Vars "disclaimer_1"}}</strong><br>
+                {{index .Vars "disclaimer_1_1"}}<br>
+                {{index .Vars "disclaimer_1_2"}}<br>
+                {{index .Vars "disclaimer_1_3"}}<br>
+            </p>
+            <p>
+                <strong>{{index .Vars "disclaimer_2"}}</strong><br>
+                {{index .Vars "disclaimer_2_1"}}<br>
+                {{index .Vars "disclaimer_2_2"}}<br>
+            </p>
+            <p>
+                    <strong>{{index .Vars "disclaimer_3"}}</strong><br>
+                    {{index .Vars "disclaimer_3_1"}}<br>
+            </p>
+            <p>
+                <strong>{{index .Vars "disclaimer_4"}}</strong><br>
+                {{index .Vars "disclaimer_4_1"}}<br>
+                {{index .Vars "disclaimer_4_2"}}<br>
+                {{index .Vars "disclaimer_4_3"}}<br>
+                {{index .Vars "disclaimer_4_4"}}<br>
+                {{index .Vars "disclaimer_4_5"}}
+            </p>           
+        </div>
+    </div>
+</section>
+
+{{template "footer.html" .}}
+{{template "end.html" .}}

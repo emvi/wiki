@@ -1,0 +1,14 @@
+.help-menu {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  color: var(--grey-40-to-grey-50);
+  cursor: pointer;
+}

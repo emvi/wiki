@@ -1,0 +1,58 @@
+{{template "head.html" .}}
+
+<div class="section-login">
+	<div class="container row">
+		<div class="login-card box">
+			<h3 class="login-headline">
+				{{index .Vars "headline"}}
+			</h3>
+			<a class="sso-button google" href="https://accounts.google.com/o/oauth2/v2/auth?client_id={{.GoogleSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile">
+				<img src="auth/static/img/icon-google.svg" alt="Google">
+				{{index .Vars "button_login_google"}}
+			</a>
+			<a class="sso-button slack" href="https://slack.com/oauth/authorize?scope=identity.basic identity.email identity.avatar&client_id={{.SlackSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/slack">
+				<img src="auth/static/img/icon-slack.svg" alt="Slack">
+				{{index .Vars "button_login_slack"}}
+			</a>
+			<a class="sso-button github" href="https://github.com/login/oauth/authorize?client_id={{.GitHubSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/github&scope=read:user user:email">
+				<img src="auth/static/img/icon-github.svg" alt="GitHub">
+				{{index .Vars "button_login_github"}}
+			</a>
+			<a class="sso-button microsoft" href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={{.MicrosoftSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/microsoft&response_type=code&scope=user.read">
+				<img src="auth/static/img/icon-microsoft.svg" alt="Microsoft">
+				{{index .Vars "button_login_microsoft"}}
+			</a>
+			<div class="spacer-16"></div>
+			<div class="or no-select">
+				<div class="or--line"></div>
+				<div class="or--text">{{index .Vars "or"}}</div>
+				<div class="or--line"></div>
+			</div>
+
+			{{if .Error}}
+				<p class="login-error">{{index .Vars .Error}}</p>
+			{{end}}
+
+			<form method="post">
+				<div class="form--element--full form--element--blue">
+					<input class="form--element--field" placeholder=" " type="email" name="email" value="{{.Email}}" autofocus />
+					<label class="form--element--label no-select">{{index .Vars "email_label"}}</label>
+				</div>
+				<div class="form--element--full form--element--blue">
+					<input class="form--element--field" placeholder=" " type="password" name="password" />
+					<label class="form--element--label no-select">{{index .Vars "password_label"}}</label>
+				</div>
+				<div class="row">
+					<input type="submit" value="{{index .Vars "submit_button"}}" class="login-button--primary" />
+					<a href="/auth/password{{.Redirect}}" class="login-text hover-underline">{{index .Vars "forgot_password"}}</a>
+				</div>
+			</form>
+		</div>
+		<div class="container center-lg center-md center-sm center-xs">
+			<div class="spacer-16"></div>
+			<q>{{index .Vars "account"}} <a href="{{.WebsiteHost}}/registration" class="hover-underline">{{index .Vars "signup"}}</a></q>
+		</div>
+	</div>
+</div>
+
+{{template "end.html" .}}

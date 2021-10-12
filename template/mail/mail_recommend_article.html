@@ -1,0 +1,22 @@
+{{$title := printf "%s %s %s %s %s" .User.Firstname .User.Lastname (index .Vars "title-1") .Article.LatestArticleContent.Title (index .Vars "title-2")}}
+{{$text := printf "%s %s" $title (index .Vars "text")}}
+{{$url := printf "%s/%s/%s" .OrgaURL .Path .ArticleId}}
+
+{{$message := ""}}
+{{if .Message}}
+  {{$message = (MailParagraph .Message)}}
+{{end}}
+
+{{template "head.html" $title}}
+{{template "preheader.html" $title}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph $text) (MailParagraph $message)}}
+{{MailButton $url (index .Vars "action") (index .Vars "link") (MailGoodbye (index .Vars "goodbye"))}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

@@ -1,0 +1,16 @@
+{{template "head.html" .}}
+
+<div class="section-login">
+	<div class="container row">
+		<div class="login-card box">
+			<h3 class="login-headline">
+				{{index .Vars "headline"}}
+			</h3>
+			<p>
+				{{index .Vars "text"}}
+			</p>
+		</div>
+	</div>
+</div>
+
+{{template "end.html" .}}

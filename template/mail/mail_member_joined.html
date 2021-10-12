@@ -1,0 +1,15 @@
+{{$title := printf "%s %s (%s) %s %s%s" .User.Firstname .User.Lastname .User.Email (index .Vars "title-1") .Organization.Name (index .Vars "title-2")}}
+{{$preheader := printf "%s %s (%s) %s %s%s" .User.Firstname .User.Lastname .User.Email (index .Vars "joined-1") .Organization.Name (index .Vars "joined-2")}}
+
+{{template "head.html" $title}}
+{{template "preheader.html" $preheader}}
+{{template "body_start.html"}}
+{{template "logo.html"}}
+{{template "text_block_start.html"}}
+
+{{MailTextblock (MailGreeting (index .Vars "greeting")) (MailParagraph $preheader) (MailParagraph (index .Vars "text")) (MailGoodbye (index .Vars "goodbye"))}}
+
+{{template "text_block_end.html"}}
+{{template "footer.html" .}}
+{{template "body_end.html"}}
+{{template "end.html"}}

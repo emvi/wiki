@@ -1,0 +1,236 @@
+{{template "head.html" .}}
+{{template "navbar.html" .}}
+
+{{if .IsIntegration}}
+    <div class="integration-cover" id="intcover">
+        <div>
+            <img src="static/img/wordmark-white.svg" alt="Emvi" width="128" />
+            <p>
+                Welcome to the Emvi integration environment.<br />
+                If you're looking for the production environment or contact information, please refer to <a href="https://emvi.com">emvi.com</a>.
+            </p>
+            <form id="intcoverForm">
+                <label for="intpassword" style="position: absolute; opacity: 0">Access code</label>
+                <input type="password" name="intpassword" id="intpassword" placeholder="Access code" />
+                <input type="submit" value="Enter" />
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        let intcover = document.getElementById("intcover");
+        let passed = window.localStorage.getItem("integration");
+
+        if(passed) {
+            intcover.style.display = "none";
+        }
+        else {
+            let form = document.getElementById("intcoverForm");
+
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                let pwd = form.getElementsByTagName("input")[0].value;
+
+                if(pwd === "EmviIntegration") {
+                    window.localStorage.setItem("integration", "passed");
+                    intcover.style.display = "none";
+                }
+            });
+        }
+    </script>
+{{end}}
+
+<section id="start" class="background--brown-10-to-black">
+    <div class="container">
+        <div class="section-start">
+            <div class="row center-lg center-md start-sm start-xs">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 data-aos="intro">{{index .Vars "hero_headline"}}</h1>
+                </div>
+            </div>
+            <div class="row center-lg center-md start-sm start-xs">
+                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                    <p data-aos="intro" data-aos-delay="100">{{index .Vars "hero_text"}}</p>
+                </div>
+            </div>
+            <div class="row center-lg center-md start-sm start-xs">
+                <div class="section--signup" data-aos="intro" data-aos-delay="200">
+                    <a href="/registration" class="primary">
+                        {{index .Vars "get_started_free"}}
+                        <i class="icon icon-arrow"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row center-lg center-md start-sm start-xs">
+                <div class="section--icons" data-aos="intro" data-aos-delay="300">
+                    <a href="https://accounts.google.com/o/oauth2/v2/auth?client_id={{.GoogleSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/google&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile">
+                        <img src="static/img/icon-google.svg" alt="Google">
+                    </a>
+                    <a href="https://slack.com/oauth/authorize?scope=identity.basic identity.email identity.avatar&client_id={{.SlackSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/slack">
+                        <img src="static/img/icon-slack.svg" alt="Slack">
+                    </a>
+                    <a href="https://github.com/login/oauth/authorize?client_id={{.GitHubSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/github&scope=read:user user:email">
+                        <img src="static/img/icon-github.svg" alt="Github" class="hideDarkMode" />
+                        <img src="static/img/icon-github-white.svg" alt="Github" class="showDarkMode" style="display: none" />
+                    </a>
+                    <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={{.MicrosoftSSOClientId}}&redirect_uri={{.AuthHost}}/auth/sso/microsoft&response_type=code&scope=user.read">
+                        <img src="static/img/icon-microsoft.svg" alt="Microsoft">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="background--brown-10-to-black">
+    <div class="theme container row center-lg center-md center-sm center-xs" data-aos="intro" data-aos-delay="400">
+        <div class="button--passive button--action button--blue toggleDarkMode hideDarkMode">
+            <div class="button--icon icon icon-night"></div>
+            <div class="button--label">{{index .Vars "switch_to_night_mode"}}</div>
+        </div>
+        <div class="button--active button--action button--blue toggleDarkMode showDarkMode" style="display: none">
+            <div class="button--icon icon icon-light"></div>
+            <div class="button--label">{{index .Vars "switch_to_light_mode"}}</div>
+        </div>
+    </div>
+    <div class="container fade--bottom--brown-10">
+        <div class="section-hero section--card" data-aos="intro" data-aos-delay="500">
+            <img src="static/img/article.svg" alt="Article" class="hideDarkMode" />
+            <img src="static/img/article-dark.svg" alt="Article" class="showDarkMode" style="display: none" />
+        </div>
+    </div>
+</section>
+<section class="background--brown-10-to-black">
+    <div class="container">
+        <div class="section-status">
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-6 col-md-offset-1 col-md-5 start-md col-sm-offset-0 col-sm-12 col-xs-offset-0 col-xs-12">
+                    <h2 data-aos="intro">{{index .Vars "status_headline"}}</h2>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                    <p data-aos="intro" data-aos-delay="100">{{index .Vars "status_text"}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="features" class="background--grey-20-to-grey-60">
+    <div class="section-features features-1">
+        <div class="container">
+            <div class="row reverse end-lg center-md">
+                <div class="col-lg-offset-1 col-lg-4 col-md-offset-0 col-md-8 col-sm-12 col-xs-12 start-lg">
+                    <h2 data-aos="intro">{{index .Vars "features_1_headline"}}</h2>
+                    <p data-aos="intro" data-aos-delay="100">{{index .Vars "features_1_text"}}</p>
+                    <div data-aos="intro" data-aos-delay="200">
+                        <a href="/registration" class="section--button section--button--primary">
+                            {{index .Vars "get_started"}}
+                            <i class="icon icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 section--card fade--right--grey-20" data-aos="intro" data-aos-delay="300">
+                    <img src="static/img/list.svg" alt="List" class="hideDarkMode" />
+                    <img src="static/img/list-dark.svg" alt="List" class="showDarkMode" style="display: none" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="background--green-10">
+    <div class="section-features features-2">
+        <div class="container">
+            <div class="row center-md">
+                <div class="col-lg-offset-1 col-lg-4 col-md-offset-0 col-md-8 col-sm-12 col-xs-12 start-lg">
+                    <h2 data-aos="intro">{{index .Vars "features_2_headline"}}</h2>
+                    <p data-aos="intro" data-aos-delay="100">{{index .Vars "features_2_text"}}</p>
+                </div>
+                <div class="col-lg-offset-1 col-lg-6 col-md-8 col-sm-12 col-xs-12 section--card fade--bottom--green-10" data-aos="intro" data-aos-delay="200">
+                    <img src="static/img/edit.svg" alt="Edit" class="hideDarkMode" />
+                    <img src="static/img/edit-dark.svg" alt="Edit" class="showDarkMode" style="display: none" />
+                </div>
+            </div>
+            <div class="row reverse center-md end-lg">
+                <div class="col-lg-offset-1 col-lg-4 col-md-offset-0 col-md-8 col-sm-12 col-xs-12 start-lg">
+                    <h2 data-aos="intro">{{index .Vars "features_3_headline"}}</h2>
+                    <p data-aos="intro" data-aos-delay="100">{{index .Vars "features_3_text"}}</p>
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 section--card fade--bottom--green-10" data-aos="intro" data-aos-delay="200">
+                    <img src="static/img/search.svg" alt="Search" class="hideDarkMode" />
+                    <img src="static/img/search-dark.svg" alt="Search" class="showDarkMode" style="display: none" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="section-features features-3">
+        <div class="container">
+            <div class="row center-md">
+                <div class="col-lg-offset-1 col-lg-4 col-md-offset-0 col-md-8 col-sm-12 col-xs-12 start-lg">
+                    <h2 data-aos="intro">{{index .Vars "features_4_headline"}}</h2>
+                    <p data-aos="intro" data-aos-delay="100">{{index .Vars "features_4_text"}}</p>
+                    <div data-aos="intro" data-aos-delay="200">
+                        <a href="/registration" class="section--button section--button--primary">
+                            {{index .Vars "get_started"}}
+                            <i class="icon icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-offset-1 col-lg-6 col-md-8 col-sm-12 col-xs-12 position-relative">
+                    <div class="fade--top-bottom--white-100">
+                        <div class="scroll"></div>
+                        <img src="static/img/activities-blank.png" alt="Activities" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="usecases" class="background--blue-10">
+    <div class="container">
+        <div class="section-usecases">
+            <div class="row reverse end-lg center-md center-sm center-xs">
+                <div class="col-lg-offset-1 row col-lg-5 col-md-8 col-sm-12 col-xs-12 start-lg center-md start-sm start-xs">
+                    <h2 data-aos="intro">{{index .Vars "usecases_headline"}}</h2>
+                    <div class="section--signup" data-aos="intro" data-aos-delay="200">
+                        <a href="/registration" class="primary">
+                            {{index .Vars "get_started_free"}}
+                            <i class="icon icon-arrow"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12 start-lg start-md start-sm start-xs position-relative">
+                    <div class="fade--right--blue-10">
+                        <div class="section--card background--white-100" data-aos="intro" data-aos-delay="200">
+                            <h3>{{index .Vars "usecases_headline_1"}}</h3>
+                            <p>{{index .Vars "usecases_text_1"}}</p>
+                        </div>
+                        <div class="section--card background--white-100" data-aos="intro" data-aos-delay="250">
+                            <h3>{{index .Vars "usecases_headline_2"}}</h3>
+                            <p>{{index .Vars "usecases_text_2"}}</p>
+                        </div>
+                        <div class="section--card background--white-100" data-aos="intro" data-aos-delay="300">
+                            <h3>{{index .Vars "usecases_headline_3"}}</h3>
+                            <p>{{index .Vars "usecases_text_3"}}</p>
+                        </div>
+                        <div class="section--card background--white-100" data-aos="intro" data-aos-delay="350">
+                            <h3>{{index .Vars "usecases_headline_4"}}</h3>
+                            <p>{{index .Vars "usecases_text_4"}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    {{template "newsletter.html" .}}
+</section>
+
+<div class="theme-switch" data-aos="intro" data-aos-delay="600">
+    <i class="icon icon-night toggleDarkMode hideDarkMode"></i>
+    <i class="icon icon-light toggleDarkMode showDarkMode" style="display: none"></i>
+</div>
+
+{{template "footer.html" .}}
+{{template "end.html" .}}

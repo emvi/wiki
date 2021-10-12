@@ -1,0 +1,71 @@
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.size-96 {
+    height: 96px;
+    width: 96px;
+    min-width: 96px;
+}
+
+.size-48 {
+    height: 48px;
+    width: 48px;
+    min-width: 48px;
+}
+
+.size-40 {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+}
+
+.size-32 {
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.padding-16 {
+    padding: 16px;
+}
+
+.box-shadow {
+    box-shadow: var(--box-shadow);
+}
+
+.focus-ring {
+    box-shadow: 0 0 0 1px var(--grey-20-to-grey-60), 0 0 4px var(--grey-20-to-grey-60);
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.no-transition {
+    transition: none;
+}
+
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}

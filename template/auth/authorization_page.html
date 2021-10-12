@@ -1,0 +1,33 @@
+{{template "head.html" .}}
+
+<div class="section-login">
+    <div class="container row">
+        <div class="login-card box">
+            <h3 class="login-headline">
+                {{index .Vars "headline"}} {{.Client.Name}}
+            </h3>
+
+            {{if .Scopes}}
+                <p>{{index .Vars "text"}}:</p>
+
+                {{$lang := .Lang}}
+                {{range .Scopes}}
+                    <p>
+                        <img src="static/icons/{{.Config.Icon}}" alt="" class="scope-icon" />
+                        <strong>{{(.Config.GetText $lang).Title}}</strong>
+                        <br />
+                        {{(.Config.GetText $lang).Description}}
+                    </p>
+                {{end}}
+            {{else}}
+                {{index .Vars "noscopes_text"}} {{.Client.Name}}.
+            {{end}}
+
+            <form method="post">
+                <input type="submit" value="{{index .Vars "submit_button"}}" class="right" />
+            </form>
+        </div>
+    </div>
+</div>
+
+{{template "end.html" .}}

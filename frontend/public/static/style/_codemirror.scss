@@ -1,0 +1,459 @@
+.CodeMirror .code-editor-lang-select {
+	position: absolute;
+	right: 12px;
+	bottom: 8px;
+	height: 22px;
+    font-family: var(--inter);
+    font-size: 13px;
+	text-align-last: right;
+	color: var(--black-to-grey-20);
+	background-color: transparent;
+	border: none;
+	border-radius: 4px;
+	outline: none;
+	z-index: 10;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	option {
+		color: var(--grey-50);
+	}
+}
+
+.CodeMirror {
+    position: relative;
+	height: auto;
+	min-height: 38px;
+	margin: 16px 0;
+	font-family: var(--mono);
+	color: var(--black-to-grey-20);
+	background: var(--grey-10-to-grey-80);
+	border-radius: 4px;
+	overflow: hidden;
+	direction: ltr;
+
+	span[role=presentation] {
+		color: var(--black-to-grey-20);
+	}
+}
+
+.CodeMirror-lines {
+	padding: 4px 0;
+}
+.CodeMirror pre.CodeMirror-line,
+.CodeMirror pre.CodeMirror-line-like {
+	padding: 0 4px;
+}
+
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler {
+	background-color: var(--grey-10-to-grey-80);
+}
+
+.CodeMirror-gutters {
+	background-color: var(--grey-10-to-grey-80);
+	white-space: nowrap;
+}
+
+.CodeMirror-linenumber {
+	min-width: 20px;
+	padding: 0 5px;
+	font-size: 14px;
+	line-height: 21px;
+	text-align: right;
+	color: var(--grey-60-to-grey-40);
+	white-space: nowrap;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.CodeMirror-guttermarker { 
+	color: var(--black-to-grey-20);
+}
+
+.CodeMirror-guttermarker-subtle {
+	color: var(--grey-50);
+}
+
+.CodeMirror-cursor {
+	width: 0;
+	border-left: 1px solid var(--black-to-grey-20);
+	border-right: none;
+}
+
+.CodeMirror div.CodeMirror-secondarycursor {
+	border-left: 1px solid var(--grey-40-to-grey-60);
+}
+
+.cm-fat-cursor .CodeMirror-cursor {
+	width: auto;
+	background: var(--green-100);
+	border: 0 !important;
+}
+
+.cm-fat-cursor div.CodeMirror-cursors {
+	z-index: 1;
+}
+
+.cm-fat-cursor-mark {
+	background-color: rgba(20, 255, 20, 0.5);
+	-webkit-animation: cursor-blink 1.06s steps(1) infinite;
+	-moz-animation: cursor-blink 1.06s steps(1) infinite;
+	animation: cursor-blink 1.06s steps(1) infinite;
+}
+
+.cm-animate-fat-cursor {
+	width: auto;
+	background-color: var(--green-100);
+	border: 0;
+	-webkit-animation: cursor-blink 1.06s steps(1) infinite;
+	-moz-animation: cursor-blink 1.06s steps(1) infinite;
+	animation: cursor-blink 1.06s steps(1) infinite;
+}
+
+.cm-tab {
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+.CodeMirror-rulers {
+	position: absolute;
+    top: -50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	overflow: hidden;
+}
+
+.CodeMirror-ruler {
+	border-left: 1px solid var(--grey-50);
+    top: 0;
+    bottom: 0;
+	position: absolute;
+}
+
+.cm-header {
+	color: var(--blue-100);
+}
+
+.cm-quote {
+	color: var(--green-100);
+}
+
+.cm-negative {
+	color: var(--red-100);
+}
+
+.cm-positive {
+	color: var(--green-100);
+}
+
+.cm-header,
+.cm-strong {
+	font-weight: 500;
+}
+
+.cm-em {
+	font-style: italic;
+}
+
+.cm-link {
+	text-decoration: underline;
+}
+
+.cm-strikethrough {
+	text-decoration: line-through;
+}
+
+.cm-operator,
+.cm-punctuation,
+.cm-base,
+.cm-function {
+	color: var(--black-to-grey-20);
+}
+
+.cm-meta,
+.cm-bracket,
+.cm-hr {
+	color: var(--grey-60-to-grey-40);
+}
+
+.cm-atom,
+.cm-def,
+.cm-builtin,
+.cm-attribute,
+.cm-link,
+.cm-variable {
+	color: var(--blue-100);
+}
+
+.cm-keyword {
+	color: var(--purple-100);
+}
+
+.cm-variable-2
+.cm-string {
+	color: var(--pink-100);
+}
+
+.cm-error,
+.cm-invalidchar {
+	color: var(--red-100);
+}
+
+.cm-number,
+.cm-comment {
+    color: var(--brown-100);
+}
+
+.cm-string-2,
+.cm-tag {
+    color: var(--orange-100);
+}
+
+.cm-variable-3,
+.cm-type,
+.cm-property,
+.cm-qualifier {
+	color: var(--green-100);
+}
+
+.CodeMirror-composing {
+    border-bottom: 2px solid;
+}
+
+.CodeMirror-scroll {
+	position: relative;
+	height: 100%;
+	margin-right: -50px;
+	margin-bottom: -50px !important;
+	padding-bottom: 50px;
+	outline: none;
+	overflow: scroll !important;
+}
+
+.CodeMirror-sizer {
+	position: relative;
+	border-right: 30px solid transparent;
+}
+
+.CodeMirror-vscrollbar,
+.CodeMirror-hscrollbar,
+.CodeMirror-scrollbar-filler,
+.CodeMirror-gutter-filler {
+	position: absolute;
+	display: none;
+	z-index: 6;
+}
+
+.CodeMirror-vscrollbar {
+    top: 0;
+    right: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.CodeMirror-hscrollbar {
+    bottom: 0;
+    left: 0;
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+
+.CodeMirror-scrollbar-filler {
+    right: 0;
+    bottom: 0;
+}
+
+.CodeMirror-gutter-filler {
+    bottom: 0;
+    left: 0;
+}
+
+.CodeMirror-gutters {
+    position: absolute;
+    top: 0;
+    left: 0;
+	min-height: 100%;
+	z-index: 3;
+}
+
+.CodeMirror-gutter {
+    height: 100%;
+	display: inline-block;
+	margin-bottom: -30px;
+	vertical-align: top;
+	white-space: normal;
+}
+
+.CodeMirror-gutter-wrapper {
+	position: absolute;
+	background: none !important;
+	border: none !important;
+	z-index: 4;
+}
+
+.CodeMirror-gutter-background {
+	position: absolute;
+    top: 0;
+    bottom: 0;
+	z-index: 4;
+}
+
+.CodeMirror-gutter-elt {
+	position: absolute;
+	cursor: default;
+	z-index: 4;
+}
+
+.CodeMirror-gutter-wrapper::selection {
+	background-color: transparent
+}
+
+.CodeMirror-gutter-wrapper::-moz-selection {
+	background-color: transparent
+}
+
+.CodeMirror-lines {
+	min-height: 1px;
+	padding: 16px 0;
+	cursor: text;
+}
+.CodeMirror pre.CodeMirror-line,
+.CodeMirror pre.CodeMirror-line-like {
+	position: relative;
+	margin: 0;
+	color: var(--black-to-grey-20);
+	background: transparent;
+	border-width: 0;
+    border-radius: 0;
+	word-wrap: normal;
+	white-space: pre;
+	overflow: visible;
+	z-index: 2;
+}
+
+.CodeMirror-wrap pre.CodeMirror-line,
+.CodeMirror-wrap pre.CodeMirror-line-like {
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	word-break: normal;
+}
+
+.CodeMirror-linebackground {
+	position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+	z-index: 0;
+}
+
+.CodeMirror-linewidget {
+	position: relative;
+	z-index: 2;
+	padding: .1px;
+}
+
+.CodeMirror-rtl pre {
+	direction: rtl;
+}
+
+.CodeMirror-code {
+    font-size: 14px;
+    line-height: 21px;
+	outline: none;
+}
+
+.CodeMirror-scroll,
+.CodeMirror-sizer,
+.CodeMirror-gutter,
+.CodeMirror-gutters,
+.CodeMirror-linenumber {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.CodeMirror-measure {
+	position: absolute;
+	height: 0;
+	width: 100%;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.CodeMirror-cursor {
+	position: absolute;
+	pointer-events: none;
+}
+
+.CodeMirror-measure pre {
+	position: static;
+}
+
+div.CodeMirror-cursors {
+	position: relative;
+	visibility: hidden;
+	z-index: 3;
+}
+
+div.CodeMirror-dragcursors {
+	visibility: visible;
+}
+
+.CodeMirror-focused div.CodeMirror-cursors {
+	visibility: visible;
+}
+
+.CodeMirror-selected {
+	color: var(--black-to-grey-20);
+	background: rgba(121,124,128,.2);
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+	color: var(--black-to-grey-20);
+	background: rgba(121,124,128,.2);
+}
+
+.CodeMirror-crosshair {
+	cursor: crosshair;
+}
+
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection {
+	color: var(--black-to-grey-20);
+	background: rgba(121,124,128,.2);
+}
+
+.CodeMirror-line::-moz-selection,
+.CodeMirror-line > span::-moz-selection,
+.CodeMirror-line > span > span::-moz-selection {
+	color: var(--black-to-grey-20);
+	background: rgba(121,124,128,.2);
+}
+
+.cm-searching {
+	background-color: rgba(255, 216, 26, .4);
+}
+
+.cm-force-border {
+	padding-right: .1px;
+}
+
+@media print {
+	.CodeMirror div.CodeMirror-cursors {
+		visibility: hidden;
+	}
+}
+
+.cm-tab-wrap-hack:after {
+	content: "";
+}
+
+span.CodeMirror-selectedtext {
+	background: none;
+}
